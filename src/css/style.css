@@ -149,6 +149,10 @@ button {
   font-size: 1.75rem;
 }
 
+textarea {
+  height: 100%;
+}
+
 .upload {
   background-color: green;
 }
