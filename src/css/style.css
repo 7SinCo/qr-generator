@@ -1,0 +1,266 @@
+:root {
+  --main-color: #4ea1e1;
+  --hover-main: #0866ff;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+*,
+*::before,
+*:after {
+  margin: 0;
+  box-sizing: inherit;
+  outline: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+}
+
+a {
+  color: unset;
+}
+
+/* Utilities */
+.grid-center {
+  display: grid;
+  place-items: center;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* Header */
+header {
+  background-color: #242526;
+  height: 10vh;
+}
+
+header div {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo {
+  height: 7vh;
+}
+
+h1 {
+  color: white;
+  font-size: 2rem;
+}
+
+/* Main */
+main {
+  min-height: 80vh;
+  width: 100%;
+  padding: 2rem 0;
+  background-color: #18191a;
+}
+
+.container {
+  width: 90%;
+  display: grid;
+  gap: 2rem;
+  padding: 2.5rem 2rem;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 1rem;
+}
+
+.setting {
+  align-content: start;
+  display: grid;
+  gap: 1rem;
+}
+
+.section {
+  background-color: var(--main-color);
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  margin-top: 2rem;
+}
+
+.section:first-child {
+  margin-top: 0;
+}
+
+label,
+p,
+.image-option a {
+  font-size: 1.75rem;
+}
+
+label {
+  font-weight: bold;
+}
+
+.input-wrap {
+  padding: 0.5rem 1rem;
+  display: grid;
+  align-self: center;
+  grid-template-columns: 1fr 4fr;
+  gap: 1rem;
+}
+
+.image-option {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.image-option a {
+  text-decoration: none;
+  color: black;
+}
+
+.display {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 30vh;
+}
+
+textarea,
+select,
+input,
+button {
+  border: none;
+  resize: none;
+  font-size: 1.75rem;
+}
+
+.upload {
+  background-color: green;
+}
+
+.delete {
+  background-color: red;
+}
+
+.btn {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.75s;
+}
+
+.btn-copy,
+.btn-download {
+  background-color: var(--main-color);
+}
+
+.btn-copy:hover,
+.btn-download:hover {
+  background-color: var(--hover-main);
+}
+
+.btn-copy {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.copy-done {
+  color: white;
+  text-shadow: -1px 1px 0 black, 1px 1px 0 black, 1px -1px 0 black,
+    -1px -1px 0 black;
+}
+
+.icon-green {
+  color: green;
+}
+
+select,
+textarea {
+  border: 1px solid #e7e7e7;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+input[type="range"] {
+  accent-color: var(--main-color);
+  cursor: pointer;
+}
+
+button {
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  color: white;
+  padding: 0.75rem;
+}
+
+canvas {
+  border: #e7e7e7 solid 2px;
+}
+
+/* Footer */
+footer {
+  gap: 1rem;
+  line-height: 1.25;
+  text-align: center;
+  color: white;
+  width: 100%;
+  min-height: 10vh;
+  padding: 1rem;
+  background-color: #242526;
+}
+
+.user-mod {
+  padding: 0 0.5rem;
+  color: var(--main-color);
+}
+
+.icons {
+  display: flex;
+  gap: 3rem;
+  font-size: 2.5rem;
+  justify-content: center;
+}
+
+.icons a {
+  transition: color 1s;
+}
+
+.icons a:hover {
+  color: var(--main-color);
+}
+
+@media (min-width: 992px) {
+  h1 {
+    font-size: 3.25rem;
+  }
+  .container {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+@media (min-width: 1220px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+  .container {
+    width: 75%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

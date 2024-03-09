@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="src/css/reset.css">
+    <link rel="stylesheet" href="src/css/style.css?v=0009">
+
+    <!-- QR - Library -->
+    <script type="text/javascript" src="src/js/qr.js"></script>
+
+    <!-- Icon -->
+    <link rel="icon" href="src/icon/icon.png">
+
+    <!-- Social Meta -->
+    <meta property="og:title" content="7SinCo | QR Generator">
+    <meta property="og:description" content="Generador de QR">
+    <meta property="og:image" content="src/img/media.png">
+    <meta property="og:image:secure_url" content="src/img/media.png">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="300">
+
+    <!-- Title Page -->
+    <title>7SinCo | QR Generator</title>
+</head>
+
+<body>
+    <header class="grid-center">
+        <div>
+            <img class="logo" src="/src/icon/icon.png" alt="logo">
+            <h1>Generador de QR</h1>
+        </div>
+    </header>
+
+    <main class="grid-center">
+        <div class="container">
+            <div class="setting">
+                <p class="section">Opciones principales</p>
+                <div class="input-wrap">
+                    <label for="data">Enlace</label>
+                    <textarea id="data"
+                        placeholder="Ponga aquí el link a convertir en QR">https://www.linkedin.com/in/marcial-su%C3%A1rez-becerril-00381224a/</textarea>
+                </div>
+                <div class="input-wrap">
+                    <label for="size">Tamaño</label>
+                    <input type="range" id="size" min="5" max="30" value="25">
+                </div>
+                <div class="input-wrap">
+                    <label for="logo">Logo</label>
+                    <input type="file" id="logo" hidden accept="image/*">
+                    <div class="image-option">
+                        <a href="javascript:browse();">
+                            <button class="upload" type="button">Seleccionar</button>
+                        </a>
+                        <button class="delete" id="clear" type="button">Limpiar</button>
+                    </div>
+                </div>
+                <div class="input-wrap">
+                    <label for="marginQR">Margen</label>
+                    <input type="range" id="marginQR" min="0" max="10" value="0">
+                </div>
+                <p class="section">Trama</p>
+                <div class="input-wrap">
+                    <label for="dot">Tipo</label>
+                    <select id="dot">
+                        <option value="square">Cuadrado</option>
+                        <option value="dots">Puntos</option>
+                        <option value="rounded">Redondeado</option>
+                        <option value="extra-rounded">Extra Redondeado</option>
+                        <option value="classy">Classy</option>
+                        <option value="classy-rounded">Classy Redondeado</option>
+                    </select>
+                </div>
+                <div class="input-wrap">
+                    <label for="dot-color">Color</label>
+                    <div>
+                        <input type="color" id="dot-color-1">
+                        <input type="color" id="dot-color-2">
+                    </div>
+                </div>
+                <p class="section">Esquinas</p>
+                <div class="input-wrap">
+                    <label for="corners">Tipo</label>
+                    <select id="corners">
+                        <option value>Ninguno</option>
+                        <option value="square">Cuadrado</option>
+                        <option value="dot">Punto</option>
+                        <option value="extra-rounded">Extra Redondeado</option>
+                    </select>
+                </div>
+                <p class="section">Opciones de fondo</p>
+                <div class="input-wrap">
+                    <label for="dot-color">Color</label>
+                    <input type="color" id="bg-color">
+                </div>
+                <p class="section">Opciones de imagen</p>
+                <div class="input-wrap">
+                    <label for="logo-size">Tamaño</label>
+                    <input type="range" id="logo-size" min="0" max="0.7" value="0.5" step="0.1">
+                </div>
+                <div class="input-wrap">
+                    <label for="margin">Margen</label>
+                    <input type="range" id="margin" min="1" max="15" value="0">
+                </div>
+            </div>
+
+            <div class="display">
+                <div id="canvas"></div>
+                <p>300px <b>X</b> 300px</p>
+                <div>
+                    <div class="image-option">
+                        <button class="btn btn-download" id="btn-dl" type="button">Descargar</button>
+                        <select id="canvas-type">
+                            <option value="png">PNG</option>
+                            <option value="jpg">JPG</option>
+                            <option value="svg">SVG</option>
+                            <option value="webp">WEBP</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-copy" id="btn-copy" type="button">Copiar <i
+                            class="fa-solid fa-copy"></i></button>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="grid-center">
+        <p class="no-margin">Powered by <span class="bold">7SinCo</span> <i
+                class="fa-solid fa-circle-user user-mod"></i> Marcial
+            Suárez Becerril</p>
+        <div class="icons">
+            <a target="_blank" rel="noopener"
+                href="https://www.linkedin.com/in/marcial-su%C3%A1rez-becerril-00381224a/"><i
+                    class="fa-brands fa-linkedin"></i></a>
+            <a target="_blank" rel="noopener" href="https://github.com/7SinCo?tab=repositories"><i
+                    class="fa-brands fa-github"></i></a>
+        </div>
+    </footer>
+
+</body>
+
+<script src="src/js/app.js?v=0009"></script>
+
+</html>
